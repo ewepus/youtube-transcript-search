@@ -5,14 +5,14 @@ import random
 import requests
 
 # --- CONFIGURATION ---
-CHANNEL_HANDLE = "CHRBRG"
+CHANNEL_HANDLE = "@CHRBRG"
 SEARCH_PHRASES = ["chipmunk", "forest", "earthly", "possessions"]
 MIN_DELAY = 2
 MAX_DELAY = 5
 
 
 def search_channel_transcripts(handle, phrases):
-    print(f"🔍 Fetching video list for @{handle}...")
+    print(f"🔍 Fetching video list for {handle}...")
 
     video_count = 0
     checked_count = 0
@@ -27,7 +27,7 @@ def search_channel_transcripts(handle, phrases):
     })
 
     try:
-        videos = scrapetube.get_channel(channel_url=f"https://www.youtube.com/@{handle}")
+        videos = scrapetube.get_channel(channel_url=f"https://www.youtube.com/{handle}")
 
         for video in videos:
             video_count += 1
